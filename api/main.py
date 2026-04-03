@@ -15,6 +15,7 @@ app = FastAPI()
 class QueryRequest(BaseModel):
     question: str
 
+# Lead all neccesary module at start of server
 @app.on_event("startup")
 def startup_event():
     # Initialize once (IMPORTANT)
@@ -49,7 +50,7 @@ def startup_event():
     print(f"\n✅ RAG Chatbot Ready! llm_chain:  {llm_chain}")
     print("✅ App initialized once!")
 
-
+# Method for /chat API call 
 @app.post("/chat")
 def chat(request: QueryRequest):
     result = llm_chain({

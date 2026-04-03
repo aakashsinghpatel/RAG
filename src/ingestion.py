@@ -1,5 +1,6 @@
 import config
 
+# Method to extract data from source (PDF)
 def load_documents():
     from langchain_community.document_loaders import DirectoryLoader, PyMuPDFLoader
     try:
@@ -13,6 +14,7 @@ def load_documents():
         print(f"Error loading documents: {e}")
         return []
 
+# Method to chunk theextracted douments into smaller pieces/chunks
 def split_documents(docs):
     from langchain_text_splitters import RecursiveCharacterTextSplitter
     splitter = RecursiveCharacterTextSplitter(

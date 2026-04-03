@@ -3,11 +3,13 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 import os
 import config
 
+# Method to get the embeddings model
 def get_embeddings():
     return HuggingFaceEmbeddings(
         model_name=config.EMBEDDING_MODEL
     )
 
+# Ṃethod to create or load the vectorstore (FAISS) based on the document chunks
 def create_or_load_vectorstore(chunks):
     embeddings = get_embeddings()
     print(f"Embeddings model loaded {embeddings}")
@@ -31,6 +33,7 @@ def create_or_load_vectorstore(chunks):
     return vectorstore
 
 
+# Method to get the retriever from the vectorstore for retrieval during question-answering
 def get_retriever(vectorstore):
     return vectorstore.as_retriever(
         search_kwargs={"k": config.TOP_K}

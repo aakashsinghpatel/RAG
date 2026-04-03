@@ -3,6 +3,7 @@ from src.memory import add_to_memory, get_history
 from langchain_core.messages import HumanMessage
 
 
+# Method to build the question-answering chain that integrates LLM, retriever, and memory for a session
 def build_chain(llm, retriever, session_id="default"):
 
     prompt = PromptTemplate.from_template("""
@@ -32,6 +33,7 @@ def build_chain(llm, retriever, session_id="default"):
     - Then provide a structured explanation (use bullet points if needed)
     - End with a helpful closing line
     """)
+
 
     def qa_chain(inputs):
         # Step 1: get data

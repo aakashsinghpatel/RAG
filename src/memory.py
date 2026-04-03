@@ -4,11 +4,13 @@ from langchain_core.messages import HumanMessage, AIMessage
 
 _memory_store = {}
 
+# Method to configure and manage in-memory chat history for sessions
 def get_memory(session_id: str = "default"):
     if session_id not in _memory_store:
         _memory_store[session_id] = InMemoryChatMessageHistory()
     return _memory_store[session_id]
 
+# Method to add messages to the session-specific memory
 def add_to_memory(session_id: str, role: str, message: str):
     memory = get_memory(session_id)
     # Use new message objects instead of raw role/message
@@ -23,6 +25,7 @@ def add_to_memory(session_id: str, role: str, message: str):
     if len(memory.messages) > MAX_MESSAGES:
         memory.messages = memory.messages[-MAX_MESSAGES:]
 
+# Method to retrieve the chat history for a session
 def get_history(session_id: str):
     memory = get_memory(session_id)
     return memory.messages  # list of BaseMessage objects
