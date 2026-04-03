@@ -200,3 +200,5 @@ This project demonstrates a complete **end-to-end RAG system**, integrating docu
 ## 🙌 Author
 
 Developed as part of Generative AI training assignment.
+
+<img width="956" height="473" alt="image" src="https://github.com/user-attachments/assets/24b7168e-4078-48bb-98d8-de16d9ebb69f" />
