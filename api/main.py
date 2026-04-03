@@ -1,13 +1,15 @@
+from httpcore import request
+
 from src.ingestion import load_documents, split_documents
 from src.vectorstore import create_or_load_vectorstore,get_retriever
 from src.llm import load_llm
 from src.memory import get_memory
 from src.chain import build_chain
+from src.evaluation import run_evaluation
 
 # Import to setup API
 from fastapi import FastAPI
 from pydantic import BaseModel
-
 
 
 app = FastAPI()
@@ -57,3 +59,9 @@ def chat(request: QueryRequest):
         "question": request.question
     })
     return {"answer": result["answer"]}
+
+# Method for /evaluate API call  (can be triggered after few chats to see how the model is performing)
+@app.get("/evaluate")
+def evaluate():
+    result =run_evaluation(llm_chain)
+    return {"result": result}
