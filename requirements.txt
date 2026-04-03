@@ -1,0 +1,16 @@
+pypdf
+pymupdf
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+python-dotenv
+langchain-text-splitters
+sentence-transformers
+faiss-cpu
+torch
+tqdm
+fastapi 
+uvicorn 
+streamlit 
+requests
