@@ -1,4 +1,4 @@
-PDF_PATH = "data/pdf/"
+PDF_PATH = "./data/pdf/"
 FAISS_PATH = "faiss_index"
 
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"

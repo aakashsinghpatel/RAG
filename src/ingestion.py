@@ -3,7 +3,7 @@ import config
 def load_documents():
     from langchain_community.document_loaders import DirectoryLoader, PyMuPDFLoader
     try:
-        directory_loader = DirectoryLoader("./data/pdf/", 
+        directory_loader = DirectoryLoader(config.PDF_PATH, 
                                     glob="*.pdf", 
                                     loader_cls=PyMuPDFLoader,
                                     silent_errors=False)

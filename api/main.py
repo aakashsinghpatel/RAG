@@ -55,5 +55,4 @@ def chat(request: QueryRequest):
     result = llm_chain({
         "question": request.question
     })
-
     return {"answer": result["answer"]}
