@@ -198,5 +198,4 @@ This project demonstrates a complete **end-to-end RAG system**, integrating docu
 ---
 
 ## 🙌 Author
-
-Developed as part of Generative AI training assignment.
+ Akash Patel
